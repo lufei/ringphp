@@ -106,7 +106,7 @@ class CurlHandler
 
         // Add a new handle
         $handle = curl_init();
-        $id = (int) $handle;
+        $id = Core::handle2Id($handle);
         $this->handles[$id] = $handle;
         $this->ownedHandles[$id] = true;
 
@@ -115,7 +115,7 @@ class CurlHandler
 
     private function releaseEasyHandle($handle)
     {
-        $id = (int) $handle;
+        $id = Core::handle2Id($handle);
         if (count($this->ownedHandles) > $this->maxHandles) {
             curl_close($this->handles[$id]);
             unset($this->handles[$id], $this->ownedHandles[$id]);

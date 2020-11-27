@@ -361,4 +361,18 @@ class Core
             return fopen('php://output', 'w');
         }
     }
+
+    public static function handle2Id($handle)
+    {
+        if (is_resource($handle)) {
+            $id = (int) $handle;
+        } else {
+            if (PHP_VERSION_ID < 70200) {
+                $id = spl_object_hash($handle);
+            } else {
+                $id = spl_object_id($handle);
+            }
+        }
+        return $id;
+    }
 }

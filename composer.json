@@ -1,5 +1,5 @@
 {
-    "name": "ezimuel/ringphp",
+    "name": "sy-records/ringphp",
     "description": "Fork of guzzle/RingPHP (abandoned) to be used with elasticsearch-php",
     "license": "MIT",
     "authors": [
@@ -9,6 +9,10 @@
             "homepage": "https://github.com/mtdowling"
         }
     ],
+    "support": {
+        "issues": "https://github.com/lufei/ringphp/issues",
+        "source": "https://github.com/lufei/ringphp"
+    },
     "require": {
         "php": ">=5.4.0",
         "ezimuel/guzzlestreams": "^3.0.1",
@@ -30,6 +34,10 @@
         "psr-4": {
             "GuzzleHttp\\Tests\\Ring\\": "tests/"
         }
+    },
+    "replace": {
+        "guzzlehttp/ringphp": "self.version",
+        "ezimuel/ringphp": "self.version"
     },
     "scripts": {
         "test": "make test",
